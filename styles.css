@@ -1,0 +1,31 @@
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,12,82,1) 35%, rgba(9,60,70,1) 100%);
+    font-family: "Roboto";
+}
+
+/* Header */
+
+header{
+    color: white;
+    text-align: center;
+    margin-top: 15px
+}
+
+header div{
+    margin: auto;
+    width: 750px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black,
+    -2px -2px 5px black;
+}
+
+header h1{
+    font-size: 48px;
+    text-shadow: 2px 2px 7px purple,
+    -2px -2px 7px purple;
+}
+
+
+
+/* Header */
