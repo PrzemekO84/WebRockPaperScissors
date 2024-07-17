@@ -6,14 +6,14 @@ body{
 /* Header */
 
 header{
-    color: white;
+    color: hsl(0, 0%, 80%);
     text-align: center;
     margin-top: 15px
 }
 
 header div{
     margin: auto;
-    width: 750px;
+    width: 800px;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 2px 2px 5px black,
@@ -21,11 +21,88 @@ header div{
 }
 
 header h1{
-    font-size: 48px;
+    font-size: 52px;
     text-shadow: 2px 2px 7px purple,
     -2px -2px 7px purple;
 }
 
-
-
 /* Header */
+
+/* ---------------------------------------------------------------- */
+
+/* Rules */
+
+#rules{
+    color: hsl(0, 0%, 90%);
+}
+
+#rulesDiv{
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px black,
+    -2px -2px 5px black;
+    border-radius: 15px;
+    width: 640px;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-shadow: 1px 1px 7px purple,
+    -1px -1px 7px purple;
+    padding-right: 35px;
+}
+
+#rulesDiv h1{
+    text-align: center;
+    font-size: 44px;
+    margin-top: 10px;
+    margin-left: 35px;
+    margin-bottom: -10px;
+}
+
+#rulesDiv ul{
+    margin-left: 35px;
+    font-size: 25px;
+}
+
+#rulesDiv li{
+    margin-top: 13px;
+}
+
+#rulesDiv a{
+    
+    color: gray;
+}
+
+#startGameBtnDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+#startGameBtn{
+    font-size: 44px;
+    border-radius: 15px;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,12,82,1) 35%, rgba(9,60,70,1) 100%);
+    color: hsl(0, 0%, 90%);
+    border: 5px solid black;
+    text-shadow: 1px 1px 7px purple,
+    -1px -1px 7px purple;
+    box-shadow: 2px 2px 5px black,
+    -2px -2px 5px purple;
+    transition: box-shadow ease 1s, color ease 1s;
+}
+
+#startGameBtn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px hsl(300, 98%, 34%),
+    -2px -2px 5px hsl(300, 98%, 34%);
+    color: hsl(300, 98%, 34%);
+}
+
+#startGameBtn:active{
+    color: white;
+}
+
+
+
+
+/* Rules */

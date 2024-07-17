@@ -1,11 +1,7 @@
 
 
-let h1 = document.getElementById("elo");
-let button = document.getElementById("button");
+let button = document.getElementById("startGameBtn");
 
-
-function Change() {
-    button.click();
-    h1.style.color = "blue";
+function elo() {
+    console.log("yoyo");
 }
-
