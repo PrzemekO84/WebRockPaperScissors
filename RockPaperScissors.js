@@ -1,7 +1,15 @@
 
+const startGameBtn = document.getElementById("startGameBtn");
 
-let button = document.getElementById("startGameBtn");
+function hideRules() {
 
-function elo() {
-    console.log("yoyo");
+    const rulesSection = document.getElementById("rules");
+
+    rulesSection.style.display = "none";
+
+    
+
+    console.log("elo elo elo");
+
 }
+
