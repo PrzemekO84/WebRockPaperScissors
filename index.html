@@ -38,20 +38,20 @@
         <h1 id="gameText">Choose your move!</h1>
         <div id="mainMoveBox">
             <div id="optionName">
-                <div class="move" id="rock">Rock</div>
-                <div class="move" id="paper">Paper</div>
-                <div class="move" id="scissors">Scissors</div>
+                <div class="move">Rock</div>
+                <div class="move">Paper</div>
+                <div class="move">Scissors</div>
             </div>
             <div id="optionBox">
-                <div class="moveOption"><img src="Images\0c12fceb25d2b3dae8c201faf846ec3c.png" alt="rock"></div>
-                <div class="moveOption"><img src="Images\kisspng-paper-letter-white-parchment-paper-sheet-5ab7d8a24cc713.2588854415219979863145.png" alt="paper"></div>
-                <div class="moveOption"><img src="Images\akl6kosg1.png" alt="scissors"></div>
+                <div onclick="Move(this)" class="moveOption" id="rock"><img src="Images\0c12fceb25d2b3dae8c201faf846ec3c.png" alt="rock"></div>
+                <div onclick="Move(this)" class="moveOption" id="paper"><img src="Images\kisspng-paper-letter-white-parchment-paper-sheet-5ab7d8a24cc713.2588854415219979863145.png" alt="paper"></div>
+                <div onclick="Move(this)" class="moveOption" id="scissors"><img src="Images\akl6kosg1.png" alt="scissors" ></div>
             </div>
         </div>
         
         <div id="scoreboard">
-            <div id="playerScore"></div>
-            <div id="computerScore"></div>
+            <div class="bothScoreboards" id="playerScore">Player score: 30</div>
+            <div class="bothScoreboards" id="computerScore">Computer score: 30</div>
         </div>
     </main>
 
