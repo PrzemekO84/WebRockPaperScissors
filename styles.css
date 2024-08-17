@@ -123,7 +123,7 @@ header h1{
     border-radius: 10px;
     box-shadow: 2px 2px 5px black,
     -2px -2px 5px black;
-    width: 600px;
+    width: 30%;
     margin: auto;
     padding: 15px;
     margin-bottom: 50px;
@@ -135,7 +135,7 @@ header h1{
     -4px -4px 5px black;
     border-radius: 20px;
     padding-top: 25px;
-    width: 1800px;
+    width: 80%;
     margin: auto;
 }
 
@@ -200,7 +200,7 @@ img {
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
-    width: 1800px;
+    width: 80%;
     flex-direction: row;
     justify-content: space-between;
 }
