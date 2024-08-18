@@ -1,9 +1,11 @@
 
-
+//Score
 let playerScoreNumber = 0;
 let computerScoreNumer = 0;
 
 function hideRules() {
+
+    //IDs
     const rulesSection = document.getElementById("rules");
     const gameSection = document.getElementById("game");
     const headerDiv = document.getElementById("headerDiv")
@@ -16,6 +18,7 @@ function hideRules() {
 
 function Game(playerMove, computerMove) {
     
+    //IDs
     const rock = document.getElementById("rock");
     const paper = document.getElementById("paper");
     const scissors = document.getElementById("scissors");
@@ -26,6 +29,8 @@ function Game(playerMove, computerMove) {
     console.log(`Computer move is ${computerMove}`);
 
     // Game Logic
+
+    gameCount()
 
     switch(playerMove){
         case "rock":
@@ -81,6 +86,7 @@ function Game(playerMove, computerMove) {
 
 function Move(move) {
 
+    //IDs
     let playerMove;
     let computerMove;
     let computerRandomNumber
@@ -112,5 +118,51 @@ function Move(move) {
     }
 
     Game(playerMove, computerMove)
+}
+
+function gameCount(){
+
+    //Ids
+    const mainMoveBox = document.getElementById("mainMoveBox");
+    const gameCount = document.getElementById("gameCount");
+    const playerMovePicture = document.getElementById("playerMovePicture");
+    const vsPicture = document.getElementById("vsPicture");
+    const computerMovePicture = document.getElementById("computerMovePicture");
+    const noneObjects = document.getElementsByClassName("noneObjects");
+    const countOptionBox = document.getElementById("countOptionBox");
+
+    //Creating Counter elements
+    const counterDiv = document.createElement("div");
+    const counterH1 = document.createElement("h1");
+
+    counterDiv.id = "counterDiv";
+    counterH1.id = "counterH1";
+    
+
+    //Hiding mainMoveBox
+    mainMoveBox.style.display = "none";
+
+    gameCount.style.display = "block";
+
+    //Adding counter to the document
+    counterDiv.textContent = "EloZelo";
+    counterDiv.style.fontSize = "40px";
+    counterH1.textContent = "UGABUGA";
+    // document.getElementById("gameCount").append(counterDiv)
+    // document.getElementById("gameCount").append(counterH1);
+
+    setTimeout( () => {
+        for(let i = 0; i < noneObjects.length; i++){
+            noneObjects[i].style.display = "block";
+            countOptionBox.style.height = "500px";
+        }
+    }, 2000)
+
+    
+
+
+
+
+
 }
 

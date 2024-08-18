@@ -34,28 +34,55 @@
         </div>
     </section>
 
+    <!-- ChooseOption -->
+
     <main id="game">
         <h1 id="gameText">Choose your move!</h1>
         <div id="mainMoveBox">
-            <div id="optionName">
+            <div class="optionName">
                 <div class="move">Rock</div>
                 <div class="move">Paper</div>
                 <div class="move">Scissors</div>
             </div>
-            <div id="optionBox">
+            <div class="optionBox">
                 <div onclick="Move(this)" class="moveOption" id="rock"><img src="Images\0c12fceb25d2b3dae8c201faf846ec3c.png" alt="rock"></div>
                 <div onclick="Move(this)" class="moveOption" id="paper"><img src="Images\kisspng-paper-letter-white-parchment-paper-sheet-5ab7d8a24cc713.2588854415219979863145.png" alt="paper"></div>
                 <div onclick="Move(this)" class="moveOption" id="scissors"><img src="Images\akl6kosg1.png" alt="scissors" ></div>
             </div>
         </div>
+
+        <!-- ChooseOption -->
+
+        <!-- Count -->
+
+        <div id="gameCount">
+            <div class="optionName">
+                <div class="noneObjects move" id="playerMove">playerMove</div>
+                <div class="noneObjects move">VS?</div>
+                <div class="noneObjects move" id="computerMove">computerMove</div>
+            </div>
+            <div id="countOptionBox">
+                <div class="noneObjects moveOption" id="playerMovePicture"><img src="Images\0c12fceb25d2b3dae8c201faf846ec3c.png" alt="rock"></div>
+                <div class="noneObjects moveOption" id="vsPicture"><img src="Images\kisspng-paper-letter-white-parchment-paper-sheet-5ab7d8a24cc713.2588854415219979863145.png" alt="paper"></div>
+                <div class="noneObjects moveOption" id="computerMovePicture"><img src="Images\akl6kosg1.png" alt="scissors" ></div>
+            </div>
+        </div>
+
+        <!-- Count -->
         
+        <!-- Scoreboard -->
+
         <div id="scoreboard">
             <div class="bothScoreboards" id="playerScore">Player score: 0</div>
             <div class="bothScoreboards" id="computerScore">Computer score: 0</div>
         </div>
+
+        <!-- Scoreboard -->
     </main>
 
 
     <script src="RockPaperScissors.js"></script>
 </body>
 </html>
+
+
