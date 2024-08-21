@@ -214,6 +214,24 @@ img {
     margin-top: -50px;
 }
 
+#counterDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 90%;
+    margin: auto;
+    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 30px;  
+}
+
+#counterH1{
+    font-size: 120px;
+    text-shadow: 4px 4px 5px purple,
+    -4px -4px 5px black;
+}
+
 /* GameCount */
 
 /* Main Game */

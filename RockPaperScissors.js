@@ -30,8 +30,6 @@ function Game(playerMove, computerMove) {
 
     // Game Logic
 
-    gameCount()
-
     switch(playerMove){
         case "rock":
             if(computerMove === "paper"){
@@ -82,6 +80,8 @@ function Game(playerMove, computerMove) {
 
     playerScoreText.textContent = `Player score: ${playerScoreNumber}`;
     computerScoreText.textContent = `Computer score: ${computerScoreNumer}`;
+
+    gameCount(playerMove, computerMove)
 }
 
 function Move(move) {
@@ -120,9 +120,10 @@ function Move(move) {
     Game(playerMove, computerMove)
 }
 
-function gameCount(){
+function gameCount(playerMove, computerMove){
 
     //Ids
+    let countText;
     const mainMoveBox = document.getElementById("mainMoveBox");
     const gameCount = document.getElementById("gameCount");
     const playerMovePicture = document.getElementById("playerMovePicture");
@@ -145,24 +146,52 @@ function gameCount(){
     gameCount.style.display = "block";
 
     //Adding counter to the document
-    counterDiv.textContent = "EloZelo";
-    counterDiv.style.fontSize = "40px";
-    counterH1.textContent = "UGABUGA";
+    counterH1.textContent = "rock paper scissors";
+    document.getElementById("gameCount").append(counterDiv);
+    document.getElementById("counterDiv").append(counterH1);
     // document.getElementById("gameCount").append(counterDiv)
     // document.getElementById("gameCount").append(counterH1);
 
-    setTimeout( () => {
-        for(let i = 0; i < noneObjects.length; i++){
-            noneObjects[i].style.display = "block";
-            countOptionBox.style.height = "500px";
-        }
-    }, 2000)
+    // setTimeout( () => {
+    //     for(let i = 0; i < noneObjects.length; i++){
+    //         noneObjects[i].style.display = "block";
+    //         countOptionBox.style.height = "500px";
+    //         counterDiv.style.display = "none"
+    //     }
+    // }, 2000)
 
+    console.log(counterH1.textContent);
     
+    // let counter = 0;
+    // let = probaXD = setInterval(() => {
+    //     console.log(`Siema`);
+    //     counter++;
+    //     console.log(counter);
+    //     console.log(interval);
+    //     if(counter === 5){
+    //         clearInterval(probaXD);
+    //     }
+    // }, 1000);
+    counterH1.textContent = "ROCK! 🪨";
+
+    let countingInterval = setInterval(() => {
+        if(counterH1.textContent === "ROCK! 🪨"){
+            countText = "PAPER! 📄";
+        }
+        if(counterH1.textContent === "PAPER! 📄"){
+            countText = "SCISSORS! ✂️";
+            clearInterval(countingInterval);
+        }
+        counterH1.textContent = countText;
+        console.log(counterH1.textContent);
+    }, 1000);
+    
+        
 
 
 
-
+    console.log(`XDD ${playerMove}`);
+    console.log(`Lol ${computerMove}`);
 
 }
 
