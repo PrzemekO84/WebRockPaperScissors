@@ -81,7 +81,8 @@ function Game(playerMove, computerMove) {
     playerScoreText.textContent = `Player score: ${playerScoreNumber}`;
     computerScoreText.textContent = `Computer score: ${computerScoreNumer}`;
 
-    gameCount(playerMove, computerMove)
+    gameCount(playerMove, computerMove);
+    settingImage(playerMove, computerMove);
 }
 
 function Move(move) {
@@ -126,11 +127,7 @@ function gameCount(playerMove, computerMove){
     let countText;
     const mainMoveBox = document.getElementById("mainMoveBox");
     const gameCount = document.getElementById("gameCount");
-    const playerMovePicture = document.getElementById("playerMovePicture");
-    const vsPicture = document.getElementById("vsPicture");
-    const computerMovePicture = document.getElementById("computerMovePicture");
-    const noneObjects = document.getElementsByClassName("noneObjects");
-    const countOptionBox = document.getElementById("countOptionBox");
+    const noneDiv = document.getElementsByClassName("noneDiv");
 
     //Creating Counter elements
     const counterDiv = document.createElement("div");
@@ -143,55 +140,76 @@ function gameCount(playerMove, computerMove){
     //Hiding mainMoveBox
     mainMoveBox.style.display = "none";
 
-    gameCount.style.display = "block";
+    gameCount.style.display = "block"
 
     //Adding counter to the document
-    counterH1.textContent = "rock paper scissors";
     document.getElementById("gameCount").append(counterDiv);
     document.getElementById("counterDiv").append(counterH1);
-    // document.getElementById("gameCount").append(counterDiv)
-    // document.getElementById("gameCount").append(counterH1);
-
-    // setTimeout( () => {
-    //     for(let i = 0; i < noneObjects.length; i++){
-    //         noneObjects[i].style.display = "block";
-    //         countOptionBox.style.height = "500px";
-    //         counterDiv.style.display = "none"
-    //     }
-    // }, 2000)
 
     console.log(counterH1.textContent);
     
-    // let counter = 0;
-    // let = probaXD = setInterval(() => {
-    //     console.log(`Siema`);
-    //     counter++;
-    //     console.log(counter);
-    //     console.log(interval);
-    //     if(counter === 5){
-    //         clearInterval(probaXD);
-    //     }
-    // }, 1000);
     counterH1.textContent = "ROCK! 🪨";
 
     let countingInterval = setInterval(() => {
         if(counterH1.textContent === "ROCK! 🪨"){
             countText = "PAPER! 📄";
         }
-        if(counterH1.textContent === "PAPER! 📄"){
+        else if(counterH1.textContent === "PAPER! 📄"){
             countText = "SCISSORS! ✂️";
+
+            setTimeout(() => {
+                counterDiv.style.display = "none";
+                for(let index = 0; index < noneDiv.length; index++){
+                    noneDiv[index].style.display = "flex";  
+                }
+            }, 1000);
+
             clearInterval(countingInterval);
         }
         counterH1.textContent = countText;
-        console.log(counterH1.textContent);
-    }, 1000);
-    
         
+    }, 1000);
 
+}
 
+function settingImage(playerMove, computerMove){
 
-    console.log(`XDD ${playerMove}`);
-    console.log(`Lol ${computerMove}`);
+    const playerMovePicture = document.getElementById("playerMovePicture");
+    const vsPicture = document.getElementById("vsPicture");
+    const computerMovePicture = document.getElementById("computerMovePicture");
+    const playerMoveText = document.getElementById("playerMove");
+    const computerMoveText = document.getElementById("computerMove");
+
+    switch(playerMove){
+        case "rock":
+            playerMovePicture.src = "Images/rockImage.png";
+            playerMoveText.textContent = "Rock"
+            break;
+        case "paper":
+            playerMovePicture.src = "Images/paperImage.png";
+            playerMoveText.textContent = "Paper"
+            break;
+        case "scissors":
+            playerMovePicture.src = "Images/scissorsImage.png";
+            playerMoveText.textContent = "Scissors"
+            break;
+        
+    }
+
+    switch(computerMove){
+        case "rock":
+            computerMovePicture.src = "Images/rockImage.png";
+            computerMoveText.textContent = "Rock"
+            break;
+        case "paper":
+            computerMovePicture.src = "Images/paperImage.png";
+            computerMoveText.textContent = "Paper"
+            break;
+        case "scissors":
+            computerMovePicture.src = "Images/scissorsImage.png";
+            computerMoveText.textConent = "Scissors" 
+            break;
+    }
 
 }
 
