@@ -237,6 +237,59 @@ img {
     -4px -4px 5px black;
 }
 
+/* Continue */
+
+#continueBtn{
+    font-size: 60px;
+    border-radius: 15px;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,12,82,1) 35%, rgba(9,60,70,1) 100%);
+    color: hsl(0, 0%, 90%);
+    border: 5px solid black;
+    text-shadow: 1px 1px 7px purple,
+    -1px -1px 7px purple;
+    box-shadow: 2px 2px 5px black,
+    -2px -2px 5px purple;
+    transition: box-shadow ease 1s, color ease 1s;
+    margin-bottom: 70px;
+
+}
+
+#continueDiv{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 90%;
+    margin: auto;
+    height: 500px;
+    margin-top: 50px;
+    margin-bottom: 30px; 
+    flex-wrap: wrap; 
+}
+
+#continueH1{
+    font-size: 120px;
+    text-shadow: 4px 4px 5px purple,
+    -4px -4px 5px black;
+}
+
+#continueBtn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px hsl(300, 98%, 34%),
+    -2px -2px 5px hsl(300, 98%, 34%);
+    color: hsl(300, 98%, 34%);
+}
+
+#continueBtn:active{
+    color: white;
+}
+
+
+
+/* Continue */
+
 
 /* GameCount */
 

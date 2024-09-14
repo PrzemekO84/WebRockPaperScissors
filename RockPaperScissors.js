@@ -16,9 +16,22 @@ function hideRules() {
     
 }
 
+function newGame(){
+
+    const gameCountDiv = document.getElementById("gameCount");
+    const mainMoveBox = document.getElementById("mainMoveBox");
+
+    gameCountDiv.style.display = "none"
+    mainMoveBox.style.display = "block"
+
+
+    
+}
+
 function Game(playerMove, computerMove) {
     
     //IDs
+    let win = ""
     const rock = document.getElementById("rock");
     const paper = document.getElementById("paper");
     const scissors = document.getElementById("scissors");
@@ -34,14 +47,18 @@ function Game(playerMove, computerMove) {
                 console.log("computer choosed paper = paper wins with rock");
                 console.log("Computer wins");
                 computerScoreNumber++;
+                win = "computer";
+                
             }
             else if(computerMove === "scissors"){
                 console.log("computer choosed scissors = scissors lose with rock");
                 console.log("Player wins");
                 playerScoreNumber++;
+                win = "player";
             }
             else{
                 console.log("draw");
+                win = "draw";
             }
             break;
         case "paper":
@@ -49,14 +66,17 @@ function Game(playerMove, computerMove) {
                 console.log("computer choosed rock = paper wins with rock");
                 console.log("Player wins");
                 playerScoreNumber++;
+                win = "player";
             }
             else if(computerMove === "scissors"){
                 console.log("computer choosed scissors = scissors wins with paper");
                 console.log("Computer wins");
                 computerScoreNumber++;
+                win = "computer";
             }
             else{
                 console.log("draw");
+                win = "draw";
             }
             break;
         case "scissors":
@@ -64,19 +84,22 @@ function Game(playerMove, computerMove) {
                 console.log("computer choosed rock = rock wins with scissors");
                 console.log("Computer wins");
                 computerScoreNumber++;
+                win = "computer";
             }
             else if(computerMove === "paper"){
                 console.log("computer choosed paper = scissors wins with paper");
                 console.log("Player wins");
                 playerScoreNumber++;
+                win = "player";
             }
             else{
                 console.log("draw");
+                win = "draw";
             }
             break;
     }
 
-    Continue(playerMove, computerMove);
+    Continue(playerMove, computerMove, win);
 }
 
 function Move(move) {
@@ -226,10 +249,10 @@ function settingImage(playerMove, computerMove){
     })
 }
 
-async function Continue(playerMove, computerMove){
+async function Continue(playerMove, computerMove, win){
 
     const noneDiv = document.getElementsByClassName("noneDiv");
-    const gameCountDiv = document.getElementById("gameCount");
+    
     
     await gameCount(playerMove, computerMove);
     
@@ -247,28 +270,41 @@ async function Continue(playerMove, computerMove){
             for(let index = 0; index < noneDiv.length; index++){
                 noneDiv[index].style.display = "none";  
             }
+            
 
             playerScoreText.textContent = `Player score: ${playerScoreNumber}`;
             computerScoreText.textContent = `Computer score: ${computerScoreNumber}`;
 
             console.log("2seconds by");
             resolve();
-        }, 4000);
+        }, 5000);
     });
 
     const continueDiv = document.createElement("div");
     const continueH1 = document.createElement("h1");
+    const continueBtn = document.createElement("button")
 
     continueDiv.id = "continueDiv";
     continueH1.id = "continueH1";
-
-    continueDiv.className = "counterDiv";
-    continueH1.className = "counterH1";
+    continueBtn.id = "continueBtn"
 
     document.getElementById("gameCount").append(continueDiv);
     document.getElementById("continueDiv").append(continueH1);
+    document.getElementById("continueDiv").append(continueBtn);
 
-    continueH1.textContent = "Siema!"
+    if(win === "player"){
+        continueH1.textContent = "Player Wins!"
+    }
+    else if(win === "computer"){
+        continueH1.textContent = "Computer Wins!"
+    }
+    else{
+        continueH1.textContent = "Draw!"
+    }
+
+    continueBtn.textContent = "Continue"
+
+    continueBtn.onclick = newGame;
 
 }
 
