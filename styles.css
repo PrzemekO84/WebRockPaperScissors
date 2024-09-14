@@ -219,7 +219,7 @@ img {
     display: none;
 }
 
-#counterDiv{
+.counterDiv{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,7 +231,7 @@ img {
     margin-bottom: 30px;  
 }
 
-#counterH1{
+.counterH1{
     font-size: 120px;
     text-shadow: 4px 4px 5px purple,
     -4px -4px 5px black;
