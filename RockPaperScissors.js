@@ -20,12 +20,33 @@ function newGame(){
 
     const gameCountDiv = document.getElementById("gameCount");
     const mainMoveBox = document.getElementById("mainMoveBox");
+    const continueDiv = document.getElementById("continueDiv");
+    const continueH1 = document.getElementById("continueH1");
+    const continueBtn = document.getElementById("continueBtn");
+    const counterDiv = document.getElementById("counterDiv");
+    const counterH1 = document.getElementById("counterH1");
+    const gameText = document.getElementById("gameText");
 
+    console.log("Hiding game count and main move box");
     gameCountDiv.style.display = "none"
     mainMoveBox.style.display = "block"
 
+    //Continue
 
-    
+    console.log("hiding continue stuff");
+    continueDiv.style.display = "none";
+    continueH1.style.display = "none";
+    continueBtn.style.display = "none";
+
+    // GameCounter
+
+    console.log("hiding game counter");
+    counterDiv.style.display = "none";
+    counterH1.style.display = "none";
+
+    //Main Move Box
+    gameText.style.display = "block";
+
 }
 
 function Game(playerMove, computerMove) {
@@ -36,64 +57,46 @@ function Game(playerMove, computerMove) {
     const paper = document.getElementById("paper");
     const scissors = document.getElementById("scissors");
 
-    console.log(`Player move is ${playerMove}`);
-    console.log(`Computer move is ${computerMove}`);
-
     // Game Logic
 
     switch(playerMove){
         case "rock":
             if(computerMove === "paper"){
-                console.log("computer choosed paper = paper wins with rock");
-                console.log("Computer wins");
                 computerScoreNumber++;
                 win = "computer";
                 
             }
             else if(computerMove === "scissors"){
-                console.log("computer choosed scissors = scissors lose with rock");
-                console.log("Player wins");
                 playerScoreNumber++;
                 win = "player";
             }
             else{
-                console.log("draw");
                 win = "draw";
             }
             break;
         case "paper":
             if(computerMove === "rock"){
-                console.log("computer choosed rock = paper wins with rock");
-                console.log("Player wins");
                 playerScoreNumber++;
                 win = "player";
             }
             else if(computerMove === "scissors"){
-                console.log("computer choosed scissors = scissors wins with paper");
-                console.log("Computer wins");
                 computerScoreNumber++;
                 win = "computer";
             }
             else{
-                console.log("draw");
                 win = "draw";
             }
             break;
         case "scissors":
             if(computerMove === "rock"){
-                console.log("computer choosed rock = rock wins with scissors");
-                console.log("Computer wins");
                 computerScoreNumber++;
                 win = "computer";
             }
             else if(computerMove === "paper"){
-                console.log("computer choosed paper = scissors wins with paper");
-                console.log("Player wins");
                 playerScoreNumber++;
                 win = "player";
             }
             else{
-                console.log("draw");
                 win = "draw";
             }
             break;
@@ -107,7 +110,9 @@ function Move(move) {
     //IDs
     let playerMove;
     let computerMove;
-    let computerRandomNumber
+    let computerRandomNumber;
+    const gameText = document.getElementById("gameText");
+    const gameCount = document.getElementById("gameCount");
 
     // PlayerMove
 
@@ -135,6 +140,8 @@ function Move(move) {
         computerMove = "scissors";
     }
 
+    gameText.style.display = "none";
+
     Game(playerMove, computerMove)
 }
 
@@ -148,15 +155,27 @@ function gameCount(playerMove, computerMove){
 
     return new Promise((resolve) => {
         //Creating Counter elements
-        const counterDiv = document.createElement("div");
-        const counterH1 = document.createElement("h1");
+        let counterDiv = document.getElementById("counterDiv");
+        let counterH1 = document.getElementById("counterH1");
 
-        counterDiv.id = "counterDiv";
-        counterH1.id = "counterH1";
+        console.log("game counts elements display to flex and block");
 
-        counterDiv.className = "counterDiv";
-        counterH1.className = "counterH1";
+        if(!counterDiv && !counterH1){
+            console.log("Creating counter Div");
+            counterDiv = document.createElement("div");
 
+            console.log("Creating Counter H1");
+            counterH1 = document.createElement("h1")
+
+            counterDiv.id = "counterDiv";
+            counterH1.id = "counterH1";
+
+            counterDiv.className = "counterDiv";
+            counterH1.className = "counterH1";
+        }
+
+        counterDiv.style.display = "flex";
+        counterH1.style.display = "block";
 
         //Hiding mainMoveBox
         mainMoveBox.style.display = "none";
@@ -210,20 +229,19 @@ function settingImage(playerMove, computerMove){
 
 
     return new Promise((resolve) => {
-        console.log("Setting images...");
         setTimeout(() => {
             switch(playerMove){
                 case "rock":
                     playerMovePicture.src = "Images/rockImage.png";
-                    playerMoveText.textContent = "Player: Rock"
+                    playerMoveText.textContent = "Rock"
                     break;
                 case "paper":
                     playerMovePicture.src = "Images/paperImage.png";
-                    playerMoveText.textContent = "Player: Paper"
+                    playerMoveText.textContent = "Paper"
                     break;
                 case "scissors":
                     playerMovePicture.src = "Images/scissorsImage.png";
-                    playerMoveText.textContent = "Player: Scissors"
+                    playerMoveText.textContent = "Scissors"
                     break;
                 
             }
@@ -242,7 +260,6 @@ function settingImage(playerMove, computerMove){
                     computerMoveText.textContent = "Computer: Scissors" 
                     break;
             }
-            console.log("Images set, resolving...");
             resolve();
         }, 500);
         
@@ -258,9 +275,6 @@ async function Continue(playerMove, computerMove, win){
     
     await settingImage(playerMove, computerMove);
 
-    console.log("Images set and game count done");
-
-    console.log("Starting 2 sec counter");
     await new Promise((resolve) => {
         setTimeout(() => {
 
@@ -275,19 +289,36 @@ async function Continue(playerMove, computerMove, win){
             playerScoreText.textContent = `Player score: ${playerScoreNumber}`;
             computerScoreText.textContent = `Computer score: ${computerScoreNumber}`;
 
-            console.log("2seconds by");
             resolve();
         }, 5000);
     });
 
-    const continueDiv = document.createElement("div");
-    const continueH1 = document.createElement("h1");
-    const continueBtn = document.createElement("button")
+    let continueDiv = document.getElementById("continueDiv");
+    let continueH1 = document.getElementById("continueH1");
+    let continueBtn = document.getElementById("continueBtn");
 
-    continueDiv.id = "continueDiv";
-    continueH1.id = "continueH1";
-    continueBtn.id = "continueBtn"
+    console.log("Setting continue objects to be visible");
 
+    if(!continueDiv && !continueH1 && !continueBtn){
+
+        console.log("Creating continue Div");
+        console.log("Creating continue H1");
+        console.log("Creating continue Button");
+
+        continueDiv = document.createElement("div");
+        continueH1 = document.createElement("h1");
+        continueBtn = document.createElement("button")
+
+        continueDiv.id = "continueDiv";
+        continueH1.id = "continueH1";
+        continueBtn.id = "continueBtn"
+    }
+
+    continueDiv.style.display = "flex";
+    continueH1.style.display = "block";
+    continueBtn.style.display = "block";
+
+    
     document.getElementById("gameCount").append(continueDiv);
     document.getElementById("continueDiv").append(continueH1);
     document.getElementById("continueDiv").append(continueBtn);
